@@ -1,0 +1,250 @@
+id,idade,sexo,bairro,grupo_exposicao,dose_mSv,internado,obito,dias_desfecho,faixa_etaria,categoria_dose
+1,29,M,Santo Hilário,leve,26.37,0,0,30,Adulto jovem,< 50 mSv
+2,23,M,Vila Nova,alto,4601.69,1,1,18,Adulto jovem,> 1000 mSv
+3,34,M,Aeroporto,leve,92.32,0,0,30,Adulto,50–200 mSv
+4,8,M,Setor Central,leve,31.83,0,0,30,Criança (≤12),< 50 mSv
+5,25,M,Vila Nova,leve,85.93,0,0,30,Adulto jovem,50–200 mSv
+6,32,M,Setor Central,leve,65.84,0,0,30,Adulto,50–200 mSv
+7,43,F,Aeroporto,leve,36.1,0,0,30,Adulto,< 50 mSv
+8,24,F,Setor Central,leve,8.18,0,0,30,Adulto jovem,< 50 mSv
+9,16,M,Setor Central,alto,1318.43,1,0,30,Adolescente,> 1000 mSv
+10,12,F,Setor Coimbra,leve,58.46,0,0,30,Criança (≤12),50–200 mSv
+11,70,M,Mansões Paraíso,leve,6.43,0,0,30,Idoso,< 50 mSv
+12,32,F,Setor Central,leve,33.39,0,0,30,Adulto,< 50 mSv
+13,41,F,Vila Nova,leve,73.82,0,0,30,Adulto,50–200 mSv
+14,68,F,Santo Hilário,leve,34.41,0,0,30,Idoso,< 50 mSv
+15,12,F,Aeroporto,leve,17.46,0,0,30,Criança (≤12),< 50 mSv
+16,64,F,Mansões Paraíso,leve,14.0,0,0,30,Idoso,< 50 mSv
+17,40,F,Mansões Paraíso,leve,62.54,1,0,30,Adulto,50–200 mSv
+18,18,M,Setor Central,moderado,556.5,0,0,30,Adolescente,200–1000 mSv
+19,32,M,Setor Central,leve,23.2,0,0,30,Adulto,< 50 mSv
+20,56,F,Aeroporto,moderado,843.17,1,0,30,Meia-idade,200–1000 mSv
+21,36,M,Setor Central,leve,64.7,0,0,30,Adulto,50–200 mSv
+22,73,F,Aeroporto,moderado,1398.95,1,0,30,Idoso,> 1000 mSv
+23,30,M,Mansões Paraíso,leve,49.97,0,0,30,Adulto jovem,< 50 mSv
+24,53,M,Aeroporto,leve,25.87,0,0,30,Meia-idade,< 50 mSv
+25,31,M,Aeroporto,leve,26.38,0,0,30,Adulto,< 50 mSv
+26,60,M,Jardim das Oliveiras,moderado,103.26,0,0,30,Meia-idade,50–200 mSv
+27,41,F,Santo Hilário,leve,34.36,0,0,30,Adulto,< 50 mSv
+28,11,M,Aeroporto,alto,2962.52,1,0,30,Criança (≤12),> 1000 mSv
+29,9,M,Aeroporto,moderado,157.66,0,0,30,Criança (≤12),50–200 mSv
+30,16,M,Aeroporto,leve,29.32,0,0,30,Adolescente,< 50 mSv
+31,7,M,Vila Nova,leve,100.49,0,0,30,Criança (≤12),50–200 mSv
+32,12,F,Aeroporto,moderado,239.2,0,0,30,Criança (≤12),200–1000 mSv
+33,49,M,Setor Central,leve,12.65,0,0,30,Meia-idade,< 50 mSv
+34,39,F,Setor Coimbra,leve,81.1,0,0,30,Adulto,50–200 mSv
+35,53,F,Aeroporto,moderado,623.55,1,0,30,Meia-idade,200–1000 mSv
+36,67,F,Mansões Paraíso,leve,471.62,1,0,30,Idoso,200–1000 mSv
+37,42,F,Setor Coimbra,moderado,158.93,1,0,30,Adulto,50–200 mSv
+38,51,F,Aeroporto,leve,57.37,0,0,30,Meia-idade,50–200 mSv
+39,54,F,Mansões Paraíso,leve,39.87,0,0,30,Meia-idade,< 50 mSv
+40,30,M,Setor Central,leve,31.64,0,0,30,Adulto jovem,< 50 mSv
+41,22,M,Jardim das Oliveiras,leve,68.08,1,0,30,Adulto jovem,50–200 mSv
+42,20,M,Vila Nova,leve,29.21,0,0,30,Adulto jovem,< 50 mSv
+43,23,M,Vila Nova,leve,5.25,0,0,30,Adulto jovem,< 50 mSv
+44,24,F,Setor Central,leve,13.99,0,0,30,Adulto jovem,< 50 mSv
+45,20,F,Mansões Paraíso,leve,102.43,0,0,30,Adulto jovem,50–200 mSv
+46,64,M,Santo Hilário,moderado,908.58,0,0,30,Idoso,200–1000 mSv
+47,54,M,Setor Central,leve,21.44,0,0,30,Meia-idade,< 50 mSv
+48,9,M,Mansões Paraíso,leve,47.2,0,0,30,Criança (≤12),< 50 mSv
+49,24,F,Aeroporto,leve,367.51,1,0,30,Adulto jovem,200–1000 mSv
+50,7,F,Aeroporto,moderado,391.36,1,0,30,Criança (≤12),200–1000 mSv
+51,37,M,Aeroporto,leve,29.69,0,0,30,Adulto,< 50 mSv
+52,36,F,Aeroporto,leve,35.61,0,0,30,Adulto,< 50 mSv
+53,60,F,Aeroporto,leve,51.8,0,0,30,Meia-idade,50–200 mSv
+54,26,M,Jardim das Oliveiras,leve,21.92,0,0,30,Adulto jovem,< 50 mSv
+55,59,F,Aeroporto,leve,51.76,1,0,30,Meia-idade,50–200 mSv
+56,72,F,Vila Nova,leve,5.21,0,0,30,Idoso,< 50 mSv
+57,13,M,Aeroporto,leve,40.61,0,0,30,Adolescente,< 50 mSv
+58,57,M,Mansões Paraíso,leve,31.4,0,0,30,Meia-idade,< 50 mSv
+59,42,M,Setor Coimbra,leve,24.67,0,0,30,Adulto,< 50 mSv
+60,36,M,Setor Central,leve,19.56,0,0,30,Adulto,< 50 mSv
+61,32,F,Mansões Paraíso,leve,17.34,0,0,30,Adulto,< 50 mSv
+62,56,F,Aeroporto,leve,14.43,0,0,30,Meia-idade,< 50 mSv
+63,45,M,Santo Hilário,leve,3.72,0,0,30,Adulto,< 50 mSv
+64,58,M,Aeroporto,leve,23.57,0,0,30,Meia-idade,< 50 mSv
+65,66,M,Jardim das Oliveiras,leve,80.47,0,0,30,Idoso,50–200 mSv
+66,43,M,Aeroporto,leve,22.18,0,0,30,Adulto,< 50 mSv
+67,73,F,Vila Nova,leve,53.13,1,0,30,Idoso,50–200 mSv
+68,43,M,Santo Hilário,leve,11.35,0,0,30,Adulto,< 50 mSv
+69,44,M,Aeroporto,leve,9.26,0,0,30,Adulto,< 50 mSv
+70,40,M,Aeroporto,leve,15.26,0,0,30,Adulto,< 50 mSv
+71,13,F,Aeroporto,leve,11.92,0,0,30,Adolescente,< 50 mSv
+72,52,M,Aeroporto,leve,10.34,0,0,30,Meia-idade,< 50 mSv
+73,39,F,Vila Nova,leve,44.97,0,0,30,Adulto,< 50 mSv
+74,34,M,Aeroporto,leve,148.74,1,0,30,Adulto,50–200 mSv
+75,67,F,Setor Central,leve,16.46,0,0,30,Idoso,< 50 mSv
+76,26,F,Aeroporto,leve,6.54,0,0,30,Adulto jovem,< 50 mSv
+77,38,M,Santo Hilário,moderado,633.48,1,0,30,Adulto,200–1000 mSv
+78,49,M,Aeroporto,leve,8.24,0,0,30,Meia-idade,< 50 mSv
+79,57,F,Aeroporto,leve,10.34,0,0,30,Meia-idade,< 50 mSv
+80,35,F,Aeroporto,leve,46.84,0,0,30,Adulto,< 50 mSv
+81,61,M,Setor Central,alto,2628.37,1,0,30,Idoso,> 1000 mSv
+82,55,M,Mansões Paraíso,leve,16.16,0,0,30,Meia-idade,< 50 mSv
+83,11,F,Setor Central,leve,31.9,0,0,30,Criança (≤12),< 50 mSv
+84,9,F,Aeroporto,leve,20.75,0,0,30,Criança (≤12),< 50 mSv
+85,44,M,Santo Hilário,leve,164.32,0,0,30,Adulto,50–200 mSv
+86,28,F,Santo Hilário,leve,16.33,0,0,30,Adulto jovem,< 50 mSv
+87,21,M,Aeroporto,leve,13.19,0,0,30,Adulto jovem,< 50 mSv
+88,41,F,Santo Hilário,leve,19.92,0,0,30,Adulto,< 50 mSv
+89,28,M,Jardim das Oliveiras,leve,20.69,0,0,30,Adulto jovem,< 50 mSv
+90,39,M,Aeroporto,leve,51.28,0,0,30,Adulto,50–200 mSv
+91,35,M,Santo Hilário,moderado,99.22,1,0,30,Adulto,50–200 mSv
+92,42,F,Santo Hilário,alto,8153.21,1,1,26,Adulto,> 1000 mSv
+93,31,M,Setor Central,moderado,273.85,1,0,30,Adulto,200–1000 mSv
+94,49,M,Aeroporto,moderado,689.0,1,0,30,Meia-idade,200–1000 mSv
+95,19,M,Aeroporto,moderado,386.88,1,0,30,Adulto jovem,200–1000 mSv
+96,49,M,Mansões Paraíso,leve,47.85,0,0,30,Meia-idade,< 50 mSv
+97,32,F,Setor Coimbra,moderado,304.14,1,0,30,Adulto,200–1000 mSv
+98,64,M,Vila Nova,leve,44.5,0,0,30,Idoso,< 50 mSv
+99,38,F,Setor Central,leve,134.1,0,0,30,Adulto,50–200 mSv
+100,72,F,Vila Nova,leve,15.42,0,0,30,Idoso,< 50 mSv
+101,43,M,Vila Nova,leve,27.24,0,0,30,Adulto,< 50 mSv
+102,21,M,Setor Central,leve,19.37,0,0,30,Adulto jovem,< 50 mSv
+103,60,M,Aeroporto,leve,125.82,0,0,30,Meia-idade,50–200 mSv
+104,28,M,Mansões Paraíso,leve,20.3,0,0,30,Adulto jovem,< 50 mSv
+105,28,M,Setor Central,leve,15.51,0,0,30,Adulto jovem,< 50 mSv
+106,8,M,Santo Hilário,moderado,266.85,1,0,30,Criança (≤12),200–1000 mSv
+107,40,F,Aeroporto,leve,26.55,0,0,30,Adulto,< 50 mSv
+108,39,M,Aeroporto,leve,14.69,0,0,30,Adulto,< 50 mSv
+109,29,M,Aeroporto,leve,21.53,0,0,30,Adulto jovem,< 50 mSv
+110,66,F,Setor Central,leve,34.56,0,0,30,Idoso,< 50 mSv
+111,16,M,Jardim das Oliveiras,moderado,368.94,0,0,30,Adolescente,200–1000 mSv
+112,27,F,Aeroporto,leve,63.42,0,0,30,Adulto jovem,50–200 mSv
+113,27,F,Mansões Paraíso,leve,22.51,0,0,30,Adulto jovem,< 50 mSv
+114,13,M,Setor Central,leve,24.95,0,0,30,Adolescente,< 50 mSv
+115,36,F,Mansões Paraíso,leve,38.29,0,0,30,Adulto,< 50 mSv
+116,48,M,Aeroporto,alto,4234.73,1,1,12,Meia-idade,> 1000 mSv
+117,37,M,Mansões Paraíso,alto,1597.65,1,0,30,Adulto,> 1000 mSv
+118,18,M,Santo Hilário,leve,169.43,0,0,30,Adolescente,50–200 mSv
+119,30,M,Aeroporto,moderado,174.68,0,0,30,Adulto jovem,50–200 mSv
+120,6,F,Aeroporto,leve,36.87,0,0,30,Criança (≤12),< 50 mSv
+121,63,M,Mansões Paraíso,leve,22.1,0,0,30,Idoso,< 50 mSv
+122,13,M,Setor Coimbra,leve,14.4,0,0,30,Adolescente,< 50 mSv
+123,42,M,Aeroporto,leve,56.28,0,0,30,Adulto,50–200 mSv
+124,73,F,Santo Hilário,leve,51.48,0,0,30,Idoso,50–200 mSv
+125,39,M,Jardim das Oliveiras,leve,19.45,0,0,30,Adulto,< 50 mSv
+126,68,F,Mansões Paraíso,leve,4.56,0,0,30,Idoso,< 50 mSv
+127,22,M,Setor Coimbra,leve,20.56,0,0,30,Adulto jovem,< 50 mSv
+128,54,F,Santo Hilário,leve,34.0,0,0,30,Meia-idade,< 50 mSv
+129,39,F,Setor Central,moderado,400.51,1,0,30,Adulto,200–1000 mSv
+130,51,F,Aeroporto,leve,59.24,0,0,30,Meia-idade,50–200 mSv
+131,11,F,Aeroporto,leve,170.95,0,0,30,Criança (≤12),50–200 mSv
+132,17,M,Santo Hilário,leve,43.54,0,0,30,Adolescente,< 50 mSv
+133,16,F,Santo Hilário,alto,4724.81,1,0,30,Adolescente,> 1000 mSv
+134,48,M,Aeroporto,leve,34.28,0,0,30,Meia-idade,< 50 mSv
+135,61,M,Mansões Paraíso,moderado,908.84,1,0,30,Idoso,200–1000 mSv
+136,53,M,Santo Hilário,leve,48.4,0,0,30,Meia-idade,< 50 mSv
+137,8,F,Vila Nova,alto,5462.45,1,0,30,Criança (≤12),> 1000 mSv
+138,63,M,Setor Central,leve,152.82,0,0,30,Idoso,50–200 mSv
+139,29,F,Setor Central,moderado,468.88,0,0,30,Adulto jovem,200–1000 mSv
+140,31,F,Aeroporto,leve,23.51,0,0,30,Adulto,< 50 mSv
+141,14,F,Aeroporto,leve,44.83,0,0,30,Adolescente,< 50 mSv
+142,52,F,Aeroporto,leve,83.41,0,0,30,Meia-idade,50–200 mSv
+143,19,F,Aeroporto,leve,47.11,0,0,30,Adulto jovem,< 50 mSv
+144,40,F,Setor Central,leve,77.93,0,0,30,Adulto,50–200 mSv
+145,61,F,Setor Central,leve,16.43,0,0,30,Idoso,< 50 mSv
+146,13,F,Aeroporto,leve,13.73,0,0,30,Adolescente,< 50 mSv
+147,39,F,Santo Hilário,leve,18.37,0,0,30,Adulto,< 50 mSv
+148,22,F,Aeroporto,leve,9.59,0,0,30,Adulto jovem,< 50 mSv
+149,28,M,Jardim das Oliveiras,leve,33.13,0,0,30,Adulto jovem,< 50 mSv
+150,35,M,Setor Coimbra,leve,20.37,0,0,30,Adulto,< 50 mSv
+151,29,M,Aeroporto,moderado,946.35,0,0,30,Adulto jovem,200–1000 mSv
+152,45,M,Setor Central,leve,9.38,0,0,30,Adulto,< 50 mSv
+153,36,F,Aeroporto,moderado,1187.86,1,0,30,Adulto,> 1000 mSv
+154,42,F,Vila Nova,leve,12.41,0,0,30,Adulto,< 50 mSv
+155,52,F,Vila Nova,leve,9.84,0,0,30,Meia-idade,< 50 mSv
+156,40,M,Aeroporto,moderado,224.57,1,0,30,Adulto,200–1000 mSv
+157,42,F,Vila Nova,leve,173.7,1,0,30,Adulto,50–200 mSv
+158,40,F,Aeroporto,leve,28.94,0,0,30,Adulto,< 50 mSv
+159,30,F,Aeroporto,leve,48.31,0,0,30,Adulto jovem,< 50 mSv
+160,28,F,Vila Nova,moderado,351.69,1,0,30,Adulto jovem,200–1000 mSv
+161,66,F,Aeroporto,leve,27.66,0,0,30,Idoso,< 50 mSv
+162,43,M,Vila Nova,moderado,280.72,0,0,30,Adulto,200–1000 mSv
+163,23,F,Setor Central,leve,31.4,0,0,30,Adulto jovem,< 50 mSv
+164,37,M,Setor Coimbra,leve,46.82,0,0,30,Adulto,< 50 mSv
+165,27,M,Aeroporto,leve,135.87,1,0,30,Adulto jovem,50–200 mSv
+166,69,F,Setor Central,moderado,107.7,1,0,30,Idoso,50–200 mSv
+167,6,M,Vila Nova,leve,127.86,1,0,30,Criança (≤12),50–200 mSv
+168,21,F,Setor Central,leve,48.25,0,0,30,Adulto jovem,< 50 mSv
+169,29,M,Setor Coimbra,alto,5152.85,1,1,15,Adulto jovem,> 1000 mSv
+170,36,F,Santo Hilário,leve,18.32,0,0,30,Adulto,< 50 mSv
+171,62,M,Vila Nova,leve,76.75,1,0,30,Idoso,50–200 mSv
+172,13,F,Santo Hilário,leve,36.87,0,0,30,Adolescente,< 50 mSv
+173,58,F,Jardim das Oliveiras,leve,7.54,0,0,30,Meia-idade,< 50 mSv
+174,10,M,Jardim das Oliveiras,leve,41.59,0,0,30,Criança (≤12),< 50 mSv
+175,61,F,Santo Hilário,leve,84.03,1,0,30,Idoso,50–200 mSv
+176,10,F,Santo Hilário,leve,64.93,0,0,30,Criança (≤12),50–200 mSv
+177,7,M,Aeroporto,leve,17.06,0,0,30,Criança (≤12),< 50 mSv
+178,49,M,Aeroporto,leve,8.97,0,0,30,Meia-idade,< 50 mSv
+179,74,M,Vila Nova,moderado,318.39,1,0,30,Idoso,200–1000 mSv
+180,66,M,Aeroporto,leve,561.04,1,0,30,Idoso,200–1000 mSv
+181,41,F,Setor Central,alto,871.63,1,0,30,Adulto,200–1000 mSv
+182,68,F,Aeroporto,leve,14.05,0,0,30,Idoso,< 50 mSv
+183,6,M,Aeroporto,leve,42.69,0,0,30,Criança (≤12),< 50 mSv
+184,72,M,Santo Hilário,leve,26.82,0,0,30,Idoso,< 50 mSv
+185,36,F,Jardim das Oliveiras,leve,25.05,0,0,30,Adulto,< 50 mSv
+186,51,M,Aeroporto,leve,185.57,1,0,30,Meia-idade,50–200 mSv
+187,59,M,Setor Central,leve,13.92,0,0,30,Meia-idade,< 50 mSv
+188,51,F,Mansões Paraíso,leve,29.62,0,0,30,Meia-idade,< 50 mSv
+189,39,F,Aeroporto,alto,3525.91,1,0,30,Adulto,> 1000 mSv
+190,36,F,Mansões Paraíso,moderado,227.73,1,0,30,Adulto,200–1000 mSv
+191,61,F,Setor Central,leve,8.2,0,0,30,Idoso,< 50 mSv
+192,20,M,Aeroporto,leve,38.23,0,0,30,Adulto jovem,< 50 mSv
+193,72,F,Setor Coimbra,leve,153.47,0,0,30,Idoso,50–200 mSv
+194,50,M,Aeroporto,moderado,530.95,1,0,30,Meia-idade,200–1000 mSv
+195,20,M,Vila Nova,leve,32.53,0,0,30,Adulto jovem,< 50 mSv
+196,52,M,Mansões Paraíso,leve,32.32,0,0,30,Meia-idade,< 50 mSv
+197,39,M,Aeroporto,leve,23.77,0,0,30,Adulto,< 50 mSv
+198,50,F,Vila Nova,leve,87.04,1,0,30,Meia-idade,50–200 mSv
+199,55,M,Jardim das Oliveiras,leve,19.04,0,0,30,Meia-idade,< 50 mSv
+200,13,M,Aeroporto,leve,8.85,0,0,30,Adolescente,< 50 mSv
+201,37,M,Mansões Paraíso,leve,7.23,0,0,30,Adulto,< 50 mSv
+202,69,M,Vila Nova,leve,32.21,0,0,30,Idoso,< 50 mSv
+203,27,F,Vila Nova,leve,77.93,0,0,30,Adulto jovem,50–200 mSv
+204,42,M,Vila Nova,leve,37.15,0,0,30,Adulto,< 50 mSv
+205,30,F,Aeroporto,leve,22.55,0,0,30,Adulto jovem,< 50 mSv
+206,34,M,Jardim das Oliveiras,leve,45.32,0,0,30,Adulto,< 50 mSv
+207,40,F,Jardim das Oliveiras,leve,35.47,0,0,30,Adulto,< 50 mSv
+208,40,F,Vila Nova,leve,63.1,1,0,30,Adulto,50–200 mSv
+209,20,M,Santo Hilário,leve,98.99,0,0,30,Adulto jovem,50–200 mSv
+210,48,F,Vila Nova,leve,12.71,0,0,30,Meia-idade,< 50 mSv
+211,13,M,Setor Central,leve,3.65,0,0,30,Adolescente,< 50 mSv
+212,17,M,Vila Nova,leve,21.86,0,0,30,Adolescente,< 50 mSv
+213,6,F,Vila Nova,leve,11.99,0,0,30,Criança (≤12),< 50 mSv
+214,15,M,Vila Nova,moderado,716.11,1,0,30,Adolescente,200–1000 mSv
+215,35,M,Santo Hilário,leve,15.63,0,0,30,Adulto,< 50 mSv
+216,43,F,Setor Central,moderado,107.6,0,0,30,Adulto,50–200 mSv
+217,57,M,Aeroporto,leve,17.89,0,0,30,Meia-idade,< 50 mSv
+218,14,F,Aeroporto,leve,7.83,0,0,30,Adolescente,< 50 mSv
+219,62,M,Setor Central,leve,125.5,1,0,30,Idoso,50–200 mSv
+220,53,F,Santo Hilário,leve,45.86,0,0,30,Meia-idade,< 50 mSv
+221,32,F,Vila Nova,leve,53.73,0,0,30,Adulto,50–200 mSv
+222,69,F,Vila Nova,leve,48.6,0,0,30,Idoso,< 50 mSv
+223,74,F,Setor Central,leve,63.9,1,0,30,Idoso,50–200 mSv
+224,20,M,Vila Nova,moderado,884.31,1,0,30,Adulto jovem,200–1000 mSv
+225,30,F,Aeroporto,leve,18.46,0,0,30,Adulto jovem,< 50 mSv
+226,68,M,Setor Central,leve,8.36,0,0,30,Idoso,< 50 mSv
+227,51,M,Santo Hilário,alto,1523.58,1,0,30,Meia-idade,> 1000 mSv
+228,10,M,Mansões Paraíso,leve,28.8,0,0,30,Criança (≤12),< 50 mSv
+229,56,M,Setor Central,leve,2.98,0,0,30,Meia-idade,< 50 mSv
+230,60,M,Aeroporto,leve,83.9,0,0,30,Meia-idade,50–200 mSv
+231,54,F,Aeroporto,leve,5.44,0,0,30,Meia-idade,< 50 mSv
+232,58,F,Aeroporto,leve,51.44,1,0,30,Meia-idade,50–200 mSv
+233,60,F,Vila Nova,leve,25.79,0,0,30,Meia-idade,< 50 mSv
+234,19,M,Aeroporto,leve,38.78,0,0,30,Adulto jovem,< 50 mSv
+235,22,F,Setor Central,leve,19.62,0,0,30,Adulto jovem,< 50 mSv
+236,44,M,Setor Central,leve,36.48,0,0,30,Adulto,< 50 mSv
+237,67,M,Aeroporto,leve,19.62,0,0,30,Idoso,< 50 mSv
+238,27,M,Setor Central,leve,18.19,0,0,30,Adulto jovem,< 50 mSv
+239,42,M,Aeroporto,leve,13.38,0,0,30,Adulto,< 50 mSv
+240,48,F,Setor Central,leve,118.44,0,0,30,Meia-idade,50–200 mSv
+241,34,F,Aeroporto,leve,41.74,0,0,30,Adulto,< 50 mSv
+242,50,M,Mansões Paraíso,moderado,463.18,1,0,30,Meia-idade,200–1000 mSv
+243,66,M,Aeroporto,leve,13.64,0,0,30,Idoso,< 50 mSv
+244,44,M,Setor Coimbra,leve,24.28,0,0,30,Adulto,< 50 mSv
+245,39,M,Setor Central,leve,12.34,0,0,30,Adulto,< 50 mSv
+246,33,F,Mansões Paraíso,moderado,283.62,1,0,30,Adulto,200–1000 mSv
+247,41,M,Vila Nova,leve,10.1,0,0,30,Adulto,< 50 mSv
+248,29,M,Santo Hilário,leve,125.39,0,0,30,Adulto jovem,50–200 mSv
+249,31,M,Santo Hilário,leve,15.18,0,0,30,Adulto,< 50 mSv

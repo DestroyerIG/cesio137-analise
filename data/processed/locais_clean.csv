@@ -1,0 +1,8 @@
+id,local,bairro,lat,lon,nivel_contaminacao,atividade_GBq,pessoas_afetadas
+1,"Rua 57, Nº 1248 (ponto zero)",Setor Central,-16.6778,-49.255,critico,50.0,85
+2,Rua 26-A (residência Devair),Santo Hilário,-16.6923,-49.2678,critico,15.2,62
+3,Av. Tocantins (ferro-velho),Setor Central,-16.6834,-49.2589,alto,8.7,34
+4,Rua do Lazer,Vila Nova,-16.6956,-49.2701,alto,4.3,28
+5,Rua 18B (Jardim das Oliveiras),Jardim das Oliveiras,-16.7012,-49.2823,moderado,2.1,18
+6,Aeroporto de Goiânia,Aeroporto,-16.632,-49.2218,baixo,0.8,12
+7,Setor Coimbra (área hospitalar),Setor Coimbra,-16.6801,-49.2612,baixo,0.5,10

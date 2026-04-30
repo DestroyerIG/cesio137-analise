@@ -1,0 +1,15 @@
+# Ambientes virtuais
+venv/
+.venv/
+env/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+__pycache__/
+
+# Dados brutos sensíveis (suba só processed)
+data/raw/
+
+# Sistema
+.DS_Store
+*.pyc
