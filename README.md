@@ -10,6 +10,19 @@
 
 ---
 
+## ⚠️ Nota sobre os Dados
+
+Os **dados agregados** deste projeto (n total de contaminados, internações e óbitos) são **reais**, extraídos de fontes primárias (AIEA, 1988; Brandão-Mello et al., 1991; CNEN, 1988).
+
+Os **dados individuais** das 249 vítimas são **simulados sinteticamente** com base nas distribuições estatísticas reportadas pela literatura:
+- Doses individuais: distribuição log-normal com parâmetros de Brandão-Mello et al. (1991) — dose mediana para exposição alta ≈ 4,5 Gy
+- Probabilidade de internação: baseada nos 57 internados reais (22,9% dos contaminados)
+- Probabilidade de óbito: baseada nos 4 óbitos reais (7% dos internados)
+
+Esta abordagem tem **valor didático e metodológico** legítimo: análises de sobrevivência baseadas em distribuições da literatura são amplamente usadas em epidemiologia quando dados individuais não estão disponíveis. As conclusões inferenciais devem ser interpretadas como validações do modelo, não como afirmações sobre indivíduos reais.
+
+---
+
 ## 📖 Contexto Histórico
 
 Em **13 de setembro de 1987**, em Goiânia (GO), dois catadores encontraram um aparelho de radioterapia abandonado numa clínica desativada. Sem saber do perigo, abriram o equipamento e encontraram uma cápsula de **Cloreto de Césio-137** — um material altamente radioativo que brilhava com uma luz azul intensa.
@@ -18,9 +31,10 @@ Nos dias seguintes, a cápsula foi passada de mão em mão, levada para casas, d
 
 | Dado | Número |
 |------|--------|
-| Pessoas expostas à radiação | 249 |
-| Pessoas internadas | 49 |
-| Óbitos confirmados | 4 |
+| Pessoas triadas no total | ~112.000 |
+| Pessoas com contaminação detectável | 249 |
+| Pessoas internadas | 57 |
+| Óbitos confirmados (SAR) | 4 |
 | Imóveis contaminados | 42 |
 | Pontos críticos de contaminação | 7 |
 | Área urbana afetada | ~100 km² |
@@ -30,11 +44,9 @@ Nos dias seguintes, a cápsula foi passada de mão em mão, levada para casas, d
 
 ## 🎯 Objetivos do Projeto
 
-Este projeto tem três objetivos principais:
-
-1. **Análise Epidemiológica** — caracterizar o perfil das vítimas, correlacionar dose de radiação recebida com desfecho clínico e construir curvas de sobrevivência
+1. **Análise Epidemiológica** — caracterizar o perfil das vítimas, correlacionar dose de radiação com desfecho clínico, métricas clássicas (CFR, taxa de ataque, incidência por grupo) e curvas de sobrevivência
 2. **Análise Espacial** — mapear a dispersão da contaminação pelos bairros de Goiânia e identificar padrões geográficos
-3. **Comparativo Internacional** — posicionar o acidente de Goiânia frente a Chernobyl (1986) e Fukushima (2011) em métricas padronizadas
+3. **Comparativo Internacional** — posicionar o acidente de Goiânia frente a Chernobyl (1986) e Fukushima (2011) em métricas padronizadas e normalizadas
 
 ---
 
@@ -42,28 +54,45 @@ Este projeto tem três objetivos principais:
 
 ### 1. Análise Epidemiológica
 - Distribuição de doses recebidas (mSv) por grupo de exposição
-- Curva de Kaplan-Meier de sobrevivência por faixa de dose
+- Métricas clássicas: Taxa de Ataque, CFR, Incidência por grupo
+- Curva de Kaplan-Meier de **hospitalização** por faixa de dose (n=57 eventos)
 - Perfil demográfico das vítimas (idade, sexo, tempo de exposição)
 - Evolução temporal dos casos — da descoberta ao controle
 
 ### 2. Análise Espacial
-- Mapa de calor de Goiânia com intensidade de contaminação por bairro
+- Mapa interativo (Folium) com intensidade de contaminação por ponto
 - Raio de dispersão a partir do ponto zero (Rua 57, Setor Central)
 - Correlação entre distância do epicentro e nível de contaminação
+- IDW (Inverse Distance Weighting) para interpolação de contaminação
 
 ### 3. Modelagem Estatística
-- Regressão logística: probabilidade de hospitalização em função da dose
-- Análise de sobrevivência com método de Kaplan-Meier
-- Teste de Log-Rank comparando grupos de exposição
+
+> **Desfecho principal: hospitalização (n=57)**. Com apenas 4 óbitos, modelos de sobrevivência sobre óbito teriam poder estatístico insuficiente (regra prática: ≥10 eventos/covariável). A hospitalização oferece poder adequado e é clinicamente relevante.
+
+| Modelo | Desfecho | Adequação |
+|--------|----------|-----------|
+| Kaplan-Meier + Log-Rank | Hospitalização | ✅ Excelente |
+| Regressão Logística | P(internação \| dose) | ✅ Adequado |
+| Cox PH | Hospitalização | ✅ Adequado |
+| Cox PH | Óbito | ⚠️ Exploratório (n=4 eventos) |
 
 ### 4. Comparativo Internacional
+
+> **Nota metodológica:** Os três acidentes são de **naturezas distintas** (Goiânia: fonte órfã/radiológico; Chernobyl e Fukushima: acidentes nucleares com liberação de reator). A comparação é **instrutiva, mas não direta** — as métricas abaixo precisam ser interpretadas com essa ressalva.
+
 | Métrica | Goiânia (1987) | Chernobyl (1986) | Fukushima (2011) |
-|--------|---------------|-----------------|-----------------|
-| Contaminados diretos | 249 | ~600.000 | ~170 |
+|---------|---------------|-----------------|------------------|
+| Tipo de acidente | Fonte órfã (radiológico) | Falha de reator (nuclear) | Desastre natural → nuclear |
+| Contaminados diretos¹ | 249 | ~134 (SAR grave) | ~170 (>100 mSv)² |
 | Óbitos agudos | 4 | 31 | 1 |
 | Área contaminada | ~100 km² | ~150.000 km² | ~600 km² |
-| Tipo | Radiológico | Nuclear | Nuclear |
-| Origem | Negligência | Falha operacional | Desastre natural |
+| Atividade liberada | 50 TBq (Cs-137) | ~5.200 PBq (total) | ~520 PBq (total) |
+| CFR (óbitos/contaminados) | 1,6% | 23,1% | 0,6% |
+| Óbitos / 1.000 km² contaminados | ~40 | ~0,21 | ~1,7 |
+| Tempo até contenção | ~15 dias | ~10 dias | ~9 meses |
+
+> ¹ Critério de "contaminado direto" varia entre acidentes — ver nota metodológica completa no notebook 06.
+> ² Fukushima: 170 trabalhadores com exposição acima de 100 mSv; evacuados totais foram ~154.000 pessoas.
 
 ---
 
@@ -74,27 +103,23 @@ cesio137-analise/
 │
 ├── 📁 data/
 │   ├── raw/                  # Dados brutos das fontes primárias
-│   │   ├── vitimas.csv       # Dados epidemiológicos das vítimas
-│   │   ├── locais.csv        # Coordenadas dos pontos contaminados
-│   │   └── dosimetria.csv    # Doses registradas por indivíduo
+│   │   ├── vitimas.csv       # Dados epidemiológicos das vítimas (SINTÉTICOS)
+│   │   ├── locais.csv        # Coordenadas dos pontos contaminados (REAIS)
+│   │   └── dosimetria.csv    # Doses registradas por indivíduo (SINTÉTICOS)
 │   └── processed/            # Dados limpos e prontos para análise
 │
-├── 📁 notebooks/
-│   ├── 01_coleta_dados.ipynb           # Consolidação das fontes
+├── 📁 notebook/
+│   ├── 01_coleta_dados.ipynb           # Consolidação e geração dos dados
 │   ├── 02_limpeza_exploracao.ipynb     # EDA e limpeza
-│   ├── 03_analise_epidemiologica.ipynb # Perfil das vítimas
+│   ├── 03_analise_epidemiologica.ipynb # Perfil das vítimas + métricas epidemiológicas
 │   ├── 04_analise_espacial.ipynb       # Mapas e geoanálise
-│   ├── 05_modelagem_estatistica.ipynb  # Kaplan-Meier e regressão
-│   └── 06_comparativo_global.ipynb     # Chernobyl e Fukushima
+│   ├── 05_modelagem_estatistica.ipynb  # Kaplan-Meier, Cox e regressão logística
+│   └── 06_comparativo_global.ipynb     # Chernobyl e Fukushima (normalizado)
 │
 ├── 📁 reports/
-│   ├── figures/              # Gráficos exportados
-│   └── dashboard/            # Dashboard interativo (Plotly Dash)
+│   └── figures/              # Gráficos exportados
 │
-├── 📁 references/            # PDFs dos relatórios oficiais
-│   ├── AIEA_1988_report.pdf
-│   └── CNEN_relatorio_oficial.pdf
-│
+├── index.html                # Dashboard interativo (Chart.js)
 ├── requirements.txt
 └── README.md
 ```
@@ -103,26 +128,33 @@ cesio137-analise/
 
 ## 🔬 Metodologia
 
-### Fontes de Dados
-| Fonte | Descrição | Acesso |
-|-------|-----------|--------|
-| AIEA — TECDOC-1009 (1988) | Relatório técnico oficial internacional | Público |
-| CNEN | Relatório oficial brasileiro | Público |
-| OPAS/OMS | Dados epidemiológicos consolidados | Público |
-| DATASUS | Internações hospitalares Goiânia 1987-1990 | Público |
-| Brandão et al. (1988) | Artigo médico com dosimetria individual | Acadêmico |
+### Fontes de Dados Primárias
+| Fonte | Descrição | Tipo |
+|-------|-----------|------|
+| AIEA — TECDOC-1009 (1988) | Relatório técnico oficial internacional | Dados agregados reais |
+| CNEN (1988) | Relatório oficial brasileiro | Dados agregados reais |
+| OPAS/OMS (1988) | Dados epidemiológicos consolidados | Dados agregados reais |
+| Brandão-Mello et al. (1991) | Artigo médico com dosimetria — parâmetros de distribuição | Base para simulação |
+
+### Geração dos Dados Sintéticos
+Os dados individuais foram gerados no notebook `01_coleta_dados.ipynb` usando:
+- `np.random.seed(42)` para reprodutibilidade
+- Doses: `np.random.lognormal(mean, sigma)` com parâmetros extraídos de Brandão-Mello et al. (1991)
+- Internação: probabilidade condicional à dose, calibrada para reproduzir os 57 internados reais
 
 ### Pipeline de Análise
 ```
-Coleta → Limpeza → EDA → Modelagem → Visualização → Narrativa
+Coleta/Simulação → Limpeza → EDA → Métricas Epidemiológicas → Modelagem → Visualização
 ```
 
 ### Técnicas Estatísticas Aplicadas
 - **Análise Descritiva** — distribuições, medidas de tendência central e dispersão
-- **Kaplan-Meier** — curva de sobrevivência por grupo de dose
+- **Métricas Epidemiológicas** — Taxa de Ataque, CFR, Incidência por grupo
+- **Kaplan-Meier** — curva de sobrevivência por grupo de dose (desfecho: hospitalização)
 - **Log-Rank Test** — comparação estatística entre grupos
-- **Regressão Logística** — probabilidade de desfecho grave por dose recebida
-- **Geopandas + Folium** — análise espacial e mapas interativos
+- **Cox PH** — modelo multivariado com C-index
+- **Regressão Logística** — P(hospitalização) com AUC-ROC, Brier Score e AP Score
+- **Folium + IDW** — análise espacial e mapa interativo
 
 ---
 
@@ -141,26 +173,12 @@ venv\Scripts\activate     # Windows
 # Instale as dependências
 pip install -r requirements.txt
 
-# Abra os notebooks
+# Execute os notebooks em ordem
 jupyter notebook
+# 01 → 02 → 03 → 04 → 05 → 06
 ```
 
----
-
-## 📦 Dependências
-
-```txt
-pandas==2.1.0
-numpy==1.25.0
-matplotlib==3.7.0
-seaborn==0.12.0
-plotly==5.15.0
-geopandas==0.13.0
-folium==0.14.0
-lifelines==0.27.0
-scikit-learn==1.3.0
-jupyter==1.0.0
-```
+> **Atenção:** Execute o notebook `01_coleta_dados.ipynb` primeiro para gerar os arquivos em `data/processed/` que os demais notebooks dependem.
 
 ---
 
@@ -168,25 +186,25 @@ jupyter==1.0.0
 
 > ⚠️ *Seção atualizada conforme análises são concluídas*
 
-- [ ] Distribuição de doses por grupo de exposição
-- [ ] Curva de Kaplan-Meier finalizada
+- [ ] Métricas epidemiológicas: Taxa de Ataque, CFR, Incidência por grupo
+- [ ] Curva de Kaplan-Meier finalizada (desfecho: hospitalização)
 - [ ] Mapa interativo de contaminação de Goiânia
-- [ ] Comparativo internacional publicado
+- [ ] Comparativo internacional com métricas normalizadas
 
 ---
 
 ## 📚 Referências
 
 - INTERNATIONAL ATOMIC ENERGY AGENCY. **The Radiological Accident in Goiânia**. Vienna: IAEA, 1988.
-- BRANDÃO-MELLO, C. E. et al. Clinical and hematological aspects of <sup>137</sup>Cs: the Goiânia radiation accident. *Health Physics*, v. 60, n. 1, p. 31-39, 1991.
-- COMMISION NACIONAL DE ENERGIA NUCLEAR (CNEN). **Relatório do acidente radiológico de Goiânia**. Brasília, 1988.
+- BRANDÃO-MELLO, C. E. et al. Clinical and hematological aspects of <sup>137</sup>Cs: the Goiânia radiation accident. *Health Physics*, v. 60, n. 1, p. 31–39, 1991.
+- COMISSÃO NACIONAL DE ENERGIA NUCLEAR (CNEN). **Relatório do acidente radiológico de Goiânia**. Brasília, 1988.
 - ORGANIZAÇÃO PAN-AMERICANA DA SAÚDE (OPAS). **Accidente radiológico de Goiânia**. Washington, 1988.
 
 ---
 
 ## 👨‍💻 Autor
 
-**Ítallo Gonçalves**
+**Ítallo Gonçalves**  
 Estudante de Engenharia de Software & Estatística
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Ítallo%20Gonçalves-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/itallo-gonçalves-3406a119a/)
