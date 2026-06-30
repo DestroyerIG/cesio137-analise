@@ -35,6 +35,18 @@
   --transition:180ms cubic-bezier(.16,1,.3,1);
 }
 
+/* ── LIGHT THEME ──────────────────────────────────────── */
+:root[data-theme="light"]{
+  --bg:#F0F2FA;--surface:#FFFFFF;--surface-2:#EEF0FB;
+  --surface-off:#E4E7F5;--header-bg:#FFFFFF;
+  --border:rgba(0,0,0,0.09);--divider:rgba(0,0,0,0.06);
+  --text:#1C1F3A;--text-muted:#5A5E7A;--text-faint:#9096B8;
+  --primary-glow:rgba(0,197,205,0.12);
+  --shadow-sm:0 1px 4px rgba(0,0,0,.08);
+  --shadow-md:0 4px 14px rgba(0,0,0,.12);
+  --shadow-lg:0 12px 32px rgba(0,0,0,.16);
+}
+
 /* ── RESET ────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;overflow:hidden}
@@ -959,7 +971,11 @@ svg{display:block}
   const r=document.documentElement;
   r.setAttribute('data-theme','dark');
   const btn=document.querySelector('[data-theme-toggle]');
-  if(btn) btn.addEventListener('click',()=>{setTimeout(()=>initAllCharts(),50);});
+  if(btn) btn.addEventListener('click',()=>{
+    const isDark=r.getAttribute('data-theme')==='dark';
+    r.setAttribute('data-theme',isDark?'light':'dark');
+    setTimeout(()=>{const active=document.querySelector('.nav-item.active');if(active)initChartsForView(active.dataset.view);},60);
+  });
 })();
 
 /* ── SIDEBAR TOGGLE ──────────────────────────────────── */
@@ -1333,10 +1349,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   animateKPI('kpi-hosp',49);
   animateKPI('kpi-tbq',50);
   animateKPI('kpi-homes',85);
-  // Re-init charts on theme toggle
-  document.querySelector('[data-theme-toggle]').addEventListener('click',()=>{
-    setTimeout(()=>{const active=document.querySelector('.nav-item.active');if(active)initChartsForView(active.dataset.view);},60);
-  });
 });
 </script>
 </body>
