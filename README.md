@@ -3,7 +3,7 @@
 ![Python](https://img.shields.io/badge/Python-3.10+-blue?style=flat-square&logo=python)
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange?style=flat-square&logo=jupyter)
 ![Pandas](https://img.shields.io/badge/Pandas-2.0+-green?style=flat-square&logo=pandas)
-![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Conclu%C3%ADdo-brightgreen?style=flat-square)
 
 > **Análise estatística e epidemiológica do acidente radiológico de Goiânia (1987),
 > o maior acidente com material radioativo das Américas e o segundo maior do mundo em número de pessoas contaminadas.**
@@ -114,7 +114,7 @@ cesio137-analise/
 │   ├── 03_analise_epidemiologica.ipynb # Perfil das vítimas + métricas epidemiológicas
 │   ├── 04_analise_espacial.ipynb       # Mapas e geoanálise
 │   ├── 05_modelagem_estatistica.ipynb  # Kaplan-Meier, Cox e regressão logística
-│   └── 06_comparativo_global.ipynb     # Chernobyl e Fukushima (normalizado)
+│   └── 06_visualizacoes_finais.ipynb   # Visualizações e gráficos finais
 │
 ├── 📁 reports/
 │   └── figures/              # Gráficos exportados
@@ -176,6 +176,10 @@ pip install -r requirements.txt
 # Execute os notebooks em ordem
 jupyter notebook
 # 01 → 02 → 03 → 04 → 05 → 06
+
+# Ou abra o dashboard diretamente no navegador
+python -m http.server 8080
+# Acesse: http://localhost:8080/index.html
 ```
 
 > **Atenção:** Execute o notebook `01_coleta_dados.ipynb` primeiro para gerar os arquivos em `data/processed/` que os demais notebooks dependem.
@@ -184,12 +188,12 @@ jupyter notebook
 
 ## 📌 Principais Resultados
 
-> ⚠️ *Seção atualizada conforme análises são concluídas*
-
-- [ ] Métricas epidemiológicas: Taxa de Ataque, CFR, Incidência por grupo
-- [ ] Curva de Kaplan-Meier finalizada (desfecho: hospitalização)
-- [ ] Mapa interativo de contaminação de Goiânia
-- [ ] Comparativo internacional com métricas normalizadas
+- [x] Distribuição de doses por grupo de exposição
+- [x] Métricas epidemiológicas: Taxa de Ataque, CFR, Incidência por grupo
+- [x] Curva de Kaplan-Meier finalizada (desfecho: hospitalização)
+- [x] Mapa interativo de contaminação de Goiânia
+- [x] Comparativo internacional com métricas normalizadas (Chernobyl e Fukushima)
+- [x] Dashboard epidemiológico interativo (ZoomCharts Dark)
 
 ---
 

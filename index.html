@@ -10,16 +10,15 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
 <style>
-/* ── TOKENS ───────────────────────────────────────────── */
-:root,[data-theme="light"]{
-  --bg:#f4f3ef;--surface:#faf9f6;--surface-2:#ffffff;
-  --surface-off:#eceae4;--border:oklch(0.2 0.01 80/0.1);
-  --divider:#dbd8d2;
-  --text:#1e1c17;--text-muted:#72706c;--text-faint:#b5b3ae;
-  --primary:#01696f;--primary-h:#0c4e54;--primary-glow:oklch(0.48 0.08 192/0.15);
-  --danger:#a12c7b;--warning:#d19900;--success:#437a22;--blue:#006494;
-  --orange:#da7101;
-  --font-body:'Inter',system-ui,sans-serif;
+/* ── TOKENS (ZoomCharts Dark) ────────────────────────── */
+:root{
+  --bg:#1C1F3A;--surface:#252949;--surface-2:#2D3159;
+  --surface-off:#20234A;--header-bg:#161832;
+  --border:rgba(255,255,255,0.07);--divider:rgba(255,255,255,0.06);
+  --text:#E8E9F0;--text-muted:#8B8FA8;--text-faint:#5A5E7A;
+  --primary:#00C5CD;--primary-h:#009BA3;--primary-glow:rgba(0,197,205,0.15);
+  --danger:#FF5252;--warning:#FFD600;--success:#00E676;--blue:#4FC3F7;--orange:#FFB74D;
+  --font-body:'Segoe UI','Inter',system-ui,sans-serif;
   --font-mono:'JetBrains Mono',monospace;
   --text-xs:clamp(.75rem,.7rem + .25vw,.875rem);
   --text-sm:clamp(.875rem,.8rem + .35vw,1rem);
@@ -28,37 +27,13 @@
   --text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);
   --sp1:.25rem;--sp2:.5rem;--sp3:.75rem;--sp4:1rem;--sp5:1.25rem;
   --sp6:1.5rem;--sp8:2rem;--sp10:2.5rem;--sp12:3rem;
-  --r-sm:.375rem;--r-md:.5rem;--r-lg:.75rem;--r-xl:1rem;--r-full:9999px;
-  --shadow-sm:0 1px 2px oklch(0.2 0.01 80/0.06);
-  --shadow-md:0 4px 12px oklch(0.2 0.01 80/0.08);
-  --shadow-lg:0 12px 32px oklch(0.2 0.01 80/0.12);
-  --sidebar-w:220px;
+  --r-sm:3px;--r-md:4px;--r-lg:6px;--r-xl:8px;--r-full:9999px;
+  --shadow-sm:0 1px 4px rgba(0,0,0,.4);
+  --shadow-md:0 4px 14px rgba(0,0,0,.5);
+  --shadow-lg:0 12px 32px rgba(0,0,0,.6);
+  --sidebar-w:185px;
   --transition:180ms cubic-bezier(.16,1,.3,1);
 }
-[data-theme="dark"]{
-  --bg:#141310;--surface:#1a1916;--surface-2:#1f1e1b;
-  --surface-off:#1c1b18;--border:oklch(1 0 0/0.07);
-  --divider:#2a2927;
-  --text:#d0cfc9;--text-muted:#767470;--text-faint:#515050;
-  --primary:#4f98a3;--primary-h:#227f8b;--primary-glow:oklch(0.6 0.08 192/0.12);
-  --danger:#d163a7;--warning:#e8af34;--success:#6daa45;--blue:#5591c7;
-  --orange:#fdab43;
-  --shadow-sm:0 1px 2px oklch(0 0 0/.2);
-  --shadow-md:0 4px 12px oklch(0 0 0/.3);
-  --shadow-lg:0 12px 32px oklch(0 0 0/.4);
-}
-@media(prefers-color-scheme:dark){:root:not([data-theme]){
-  --bg:#141310;--surface:#1a1916;--surface-2:#1f1e1b;
-  --surface-off:#1c1b18;--border:oklch(1 0 0/0.07);
-  --divider:#2a2927;
-  --text:#d0cfc9;--text-muted:#767470;--text-faint:#515050;
-  --primary:#4f98a3;--primary-h:#227f8b;--primary-glow:oklch(0.6 0.08 192/0.12);
-  --danger:#d163a7;--warning:#e8af34;--success:#6daa45;--blue:#5591c7;
-  --orange:#fdab43;
-  --shadow-sm:0 1px 2px oklch(0 0 0/.2);
-  --shadow-md:0 4px 12px oklch(0 0 0/.3);
-  --shadow-lg:0 12px 32px oklch(0 0 0/.4);
-}}
 
 /* ── RESET ────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -82,7 +57,7 @@ svg{display:block}
 /* SIDEBAR */
 .sidebar{
   grid-row:1/-1;
-  background:var(--surface);
+  background:var(--surface-off);
   border-right:1px solid var(--border);
   display:flex;flex-direction:column;
   overflow:hidden;
@@ -132,7 +107,7 @@ svg{display:block}
   font-size:var(--text-sm);
 }
 .nav-item:hover{background:var(--surface-off);color:var(--text)}
-.nav-item.active{background:var(--primary-glow);color:var(--primary);font-weight:500}
+.nav-item.active{background:var(--primary-glow);color:var(--primary);font-weight:500;box-shadow:inset 3px 0 0 var(--primary)}
 .nav-icon{flex-shrink:0;width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
 .nav-label{opacity:1;transition:opacity var(--transition)}
 .app.collapsed .nav-label{opacity:0;pointer-events:none}
@@ -153,7 +128,7 @@ svg{display:block}
 /* HEADER */
 .header{
   grid-column:2;
-  background:var(--surface);
+  background:var(--header-bg);
   border-bottom:1px solid var(--border);
   display:flex;align-items:center;gap:var(--sp4);
   padding:0 var(--sp6);
@@ -234,12 +209,19 @@ svg{display:block}
 .kpi-card{
   background:var(--surface);
   border:1px solid var(--border);
+  border-top:2px solid var(--border);
   border-radius:var(--r-lg);
   padding:var(--sp5);
   box-shadow:var(--shadow-sm);
   display:flex;flex-direction:column;gap:var(--sp2);
   transition:box-shadow var(--transition),transform var(--transition);
   cursor:default;
+  position:relative;overflow:hidden;
+}
+.kpi-card::after{
+  content:'';position:absolute;top:-24px;right:-16px;
+  width:64px;height:64px;border-radius:50%;
+  background:rgba(255,255,255,0.03);
 }
 .kpi-card:hover{box-shadow:var(--shadow-md);transform:translateY(-1px)}
 .kpi-header{display:flex;align-items:center;justify-content:space-between}
@@ -252,12 +234,20 @@ svg{display:block}
   font-family:var(--font-mono);
 }
 .kpi-delta{
-  display:flex;align-items:center;gap:var(--sp1);
-  font-size:var(--text-xs);font-weight:500;
+  display:flex;align-items:center;gap:var(--sp2);
+  font-size:10px;font-weight:500;flex-wrap:wrap;margin-top:2px;
 }
-.delta-up{color:var(--danger)}
-.delta-neutral{color:var(--text-muted)}
-.delta-note{color:var(--text-faint);font-weight:400}
+.delta-up{
+  display:inline-flex;align-items:center;
+  background:rgba(255,82,82,0.18);color:var(--danger);
+  border-radius:3px;padding:2px 7px;font-size:10px;font-weight:700;
+}
+.delta-neutral{
+  display:inline-flex;align-items:center;
+  background:rgba(139,143,168,0.15);color:var(--text-muted);
+  border-radius:3px;padding:2px 7px;font-size:10px;font-weight:700;
+}
+.delta-note{color:var(--text-faint);font-weight:400;font-size:10px;}
 
 /* CHART GRID */
 .chart-grid{
@@ -273,7 +263,7 @@ svg{display:block}
   border:1px solid var(--border);
   border-radius:var(--r-lg);
   padding:var(--sp5);
-  box-shadow:var(--shadow-sm);
+  box-shadow:var(--shadow-md);
   display:flex;flex-direction:column;gap:var(--sp4);
   transition:box-shadow var(--transition);
 }
@@ -326,7 +316,7 @@ svg{display:block}
 .data-table{width:100%;border-collapse:collapse}
 .data-table thead th{
   position:sticky;top:0;z-index:1;
-  background:var(--surface);
+  background:var(--surface-2);
   font-size:10px;font-weight:600;letter-spacing:.08em;
   text-transform:uppercase;color:var(--text-muted);
   padding:var(--sp3) var(--sp5);
@@ -427,11 +417,39 @@ svg{display:block}
 .comp-key{color:var(--text-muted)}
 .comp-val{font-weight:600;font-variant-numeric:tabular-nums;font-family:var(--font-mono)}
 
+/* ── TREND PANELS (ZoomCharts) ─────────────────── */
+.trend-panels{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp4)}
+@media(max-width:900px){.trend-panels{grid-template-columns:1fr}}
+.trend-panel{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:var(--sp5);
+  box-shadow:var(--shadow-md);
+  display:flex;flex-direction:column;gap:var(--sp4);
+}
+.panel-label{
+  font-size:10px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--text-muted);
+}
+.kpi-mini-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp3)}
+.kpi-mini{
+  background:var(--surface-2);border:1px solid var(--border);
+  border-radius:var(--r-md);padding:var(--sp3) var(--sp4);
+  display:flex;flex-direction:column;gap:3px;
+}
+.kpi-mini-val{
+  font-size:clamp(22px,2vw,30px);font-weight:800;color:var(--text);
+  line-height:1;font-variant-numeric:tabular-nums;font-family:var(--font-mono);
+}
+.kpi-mini-val small{font-size:13px;font-weight:400;color:var(--text-muted);font-family:var(--font-body)}
+.kpi-mini-label{font-size:10px;color:var(--text-muted);font-weight:500;margin-top:1px}
+.kpi-mini-trend{display:flex;align-items:center;gap:var(--sp2);font-size:10px;margin-top:3px}
+.kpi-strip-sm{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:var(--sp4)}
+
 /* SCROLLBAR */
 ::-webkit-scrollbar{width:5px;height:5px}
 ::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:var(--divider);border-radius:var(--r-full)}
-::-webkit-scrollbar-thumb:hover{background:var(--text-faint)}
+::-webkit-scrollbar-thumb{background:var(--surface-2);border-radius:var(--r-full)}
+::-webkit-scrollbar-thumb:hover{background:var(--primary-glow)}
 
 /* TOOLTIP OVERRIDE */
 .chartjs-tooltip{
@@ -583,83 +601,80 @@ svg{display:block}
         <span class="section-sub">Acidente radiológico de Goiânia · 13 set 1987</span>
       </div>
 
-      <div class="kpi-grid">
-        <div class="kpi-card">
-          <div class="kpi-header">
-            <span class="kpi-label">Contaminados</span>
-            <div class="kpi-icon" style="background:color-mix(in oklch,var(--blue) 12%,transparent);color:var(--blue)">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <!-- TREND PANELS (ZoomCharts style) -->
+      <div class="trend-panels">
+        <div class="trend-panel">
+          <div class="panel-label">Contaminação &amp; Exposição</div>
+          <div class="kpi-mini-row">
+            <div class="kpi-mini">
+              <div class="kpi-mini-val" style="color:var(--primary)">249</div>
+              <div class="kpi-mini-label">Total Contaminados</div>
+              <div class="kpi-mini-trend">
+                <span class="delta-up">▲ 100%</span>
+                <span class="delta-note">dos triados (112k+)</span>
+              </div>
+            </div>
+            <div class="kpi-mini">
+              <div class="kpi-mini-val">50 <small>TBq</small></div>
+              <div class="kpi-mini-label">Atividade · ¹³⁷Cs</div>
+              <div class="kpi-mini-trend">
+                <span class="delta-up">▼ INES 5</span>
+                <span class="delta-note">maior não-reatoral</span>
+              </div>
             </div>
           </div>
-          <div class="kpi-value" id="kpi-total">249</div>
-          <div class="kpi-delta">
-            <span class="delta-up">↑ Radioativos confirmados</span>
-            <span class="delta-note">com contaminação interna/externa</span>
-          </div>
+          <div class="chart-wrap" style="height:130px"><canvas id="chartAcum"></canvas></div>
         </div>
-        <div class="kpi-card">
-          <div class="kpi-header">
-            <span class="kpi-label">Óbitos Diretos</span>
-            <div class="kpi-icon" style="background:color-mix(in oklch,var(--danger) 12%,transparent);color:var(--danger)">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        <div class="trend-panel">
+          <div class="panel-label">Desfechos Clínicos · Fase Aguda</div>
+          <div class="kpi-mini-row">
+            <div class="kpi-mini">
+              <div class="kpi-mini-val" style="color:var(--danger)">4</div>
+              <div class="kpi-mini-label">Óbitos Diretos (SAR)</div>
+              <div class="kpi-mini-trend">
+                <span class="delta-up">▼ 1,6%</span>
+                <span class="delta-note">dos contaminados</span>
+              </div>
+            </div>
+            <div class="kpi-mini">
+              <div class="kpi-mini-val" style="color:var(--warning)">49</div>
+              <div class="kpi-mini-label">Internados · fase aguda</div>
+              <div class="kpi-mini-trend">
+                <span class="delta-up">▼ 19,7%</span>
+                <span class="delta-note">dos contaminados</span>
+              </div>
             </div>
           </div>
-          <div class="kpi-value" id="kpi-deaths" style="color:var(--danger)">4</div>
-          <div class="kpi-delta">
-            <span class="delta-up" style="color:var(--danger)">Síndrome Aguda de Radiação</span>
-            <span class="delta-note">em até 30 dias</span>
-          </div>
+          <div class="chart-wrap" style="height:130px"><canvas id="chartAcumDesfecho"></canvas></div>
         </div>
-        <div class="kpi-card">
-          <div class="kpi-header">
-            <span class="kpi-label">Internados</span>
-            <div class="kpi-icon" style="background:color-mix(in oklch,var(--warning) 15%,transparent);color:var(--warning)">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-            </div>
-          </div>
-          <div class="kpi-value" id="kpi-hosp" style="color:var(--warning)">49</div>
-          <div class="kpi-delta">
-            <span style="color:var(--warning)">⚕ Tratamento hospitalar</span>
-            <span class="delta-note">fase aguda</span>
-          </div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-header">
-            <span class="kpi-label">Atividade Total</span>
-            <div class="kpi-icon" style="background:color-mix(in oklch,var(--primary) 12%,transparent);color:var(--primary)">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg>
-            </div>
-          </div>
-          <div class="kpi-value" id="kpi-tbq" style="color:var(--primary)">50</div>
-          <div class="kpi-delta">
-            <span style="color:var(--primary)">TBq de ¹³⁷Cs</span>
-            <span class="delta-note">1.375 Ci · fonte INEN</span>
-          </div>
-        </div>
-        <div class="kpi-card">
+      </div>
+
+      <!-- KPI STRIP -->
+      <div class="kpi-strip-sm">
+        <div class="kpi-card" style="border-top-color:var(--orange)">
           <div class="kpi-header">
             <span class="kpi-label">Propriedades</span>
-            <div class="kpi-icon" style="background:color-mix(in oklch,var(--orange) 15%,transparent);color:var(--orange)">
+            <div class="kpi-icon" style="background:rgba(255,183,77,0.15);color:var(--orange)">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
             </div>
           </div>
           <div class="kpi-value" id="kpi-homes" style="color:var(--orange)">85</div>
           <div class="kpi-delta">
-            <span style="color:var(--orange)">Imóveis contaminados</span>
+            <span style="color:var(--orange);font-weight:600">Imóveis contaminados</span>
             <span class="delta-note">Goiânia, GO</span>
           </div>
         </div>
-        <div class="kpi-card">
+        <div class="kpi-card" style="border-top-color:#CE93D8">
           <div class="kpi-header">
             <span class="kpi-label">Nível INES</span>
-            <div class="kpi-icon" style="background:color-mix(in oklch,var(--danger) 12%,transparent);color:var(--danger)">
+            <div class="kpi-icon" style="background:rgba(206,147,216,0.15);color:#CE93D8">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
             </div>
           </div>
-          <div class="kpi-value" style="color:var(--danger)">5</div>
+          <div class="kpi-value" style="color:#CE93D8">5</div>
           <div class="kpi-delta">
-            <span style="color:var(--danger)">Acidente com efeitos</span>
-            <span class="delta-note">amplos — maior não-reatoral</span>
+            <span style="color:#CE93D8;font-weight:600">Acidente com efeitos amplos</span>
+            <span class="delta-note">maior não-reatoral mundial</span>
           </div>
         </div>
       </div>
@@ -942,14 +957,9 @@ svg{display:block}
 /* ── THEME ───────────────────────────────────────────── */
 (function(){
   const r=document.documentElement;
-  const d=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
-  r.setAttribute('data-theme',d);
+  r.setAttribute('data-theme','dark');
   const btn=document.querySelector('[data-theme-toggle]');
-  if(btn) btn.addEventListener('click',()=>{
-    const cur=r.getAttribute('data-theme')==='dark'?'light':'dark';
-    r.setAttribute('data-theme',cur);
-    setTimeout(()=>initAllCharts(),50);
-  });
+  if(btn) btn.addEventListener('click',()=>{setTimeout(()=>initAllCharts(),50);});
 })();
 
 /* ── SIDEBAR TOGGLE ──────────────────────────────────── */
@@ -1019,6 +1029,7 @@ function colors(){return{
 }}
 function destroyChart(id){if(charts[id]){charts[id].destroy();delete charts[id]}}
 Chart.defaults.font.family=getComputedStyle(document.body).fontFamily;
+Chart.defaults.color='#8B8FA8';
 Chart.defaults.plugins.legend.display=false;
 Chart.defaults.plugins.tooltip.backgroundColor=()=>getStyle('--surface-2');
 Chart.defaults.plugins.tooltip.titleColor=()=>getStyle('--text');
@@ -1026,7 +1037,7 @@ Chart.defaults.plugins.tooltip.bodyColor=()=>getStyle('--text-muted');
 Chart.defaults.plugins.tooltip.borderColor=()=>getStyle('--border');
 Chart.defaults.plugins.tooltip.borderWidth=1;
 Chart.defaults.plugins.tooltip.padding=10;
-Chart.defaults.plugins.tooltip.cornerRadius=8;
+Chart.defaults.plugins.tooltip.cornerRadius=6;
 
 let chartGroupMode='bar';
 let chartDoseMode='linear';
@@ -1039,11 +1050,45 @@ function initAllCharts(){
 }
 function initChartsForView(v){
   const c=colors();
-  if(v==='overview'){chartGroups(c);chartINES();}
+  if(v==='overview'){chartAcum(c);chartAcumDesfecho(c);chartGroups(c);chartINES();}
   if(v==='epidemio'){chartDose(c);chartSAR(c);chartKM(c);renderTable();}
   if(v==='exposure'){renderDoseBars(c);chartVia(c);chartDecay(c);}
   if(v==='comparativo'){chartCompar(c);}
   if(v==='timeline'){renderTimeline();}
+}
+
+/* CHART: Acumulado Contaminados */
+function chartAcum(c){
+  destroyChart('chartAcum');
+  const ctx=document.getElementById('chartAcum');
+  if(!ctx)return;
+  const labels=['13 Set','22 Set','29 Set','7 Out','23 Out','Nov','Dez','Jan 88'];
+  const data=[2,42,110,180,220,235,244,249];
+  new Chart(ctx,{type:'line',data:{labels,datasets:[{
+    label:'Contaminados acumulados',data,fill:true,
+    borderColor:c.primary,borderWidth:2,pointRadius:3,
+    backgroundColor:'rgba(0,197,205,0.12)',tension:0.4
+  }]},options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{cornerRadius:6,callbacks:{label:d=>`${d.raw} casos`}}},
+    scales:{x:{grid:{color:'rgba(255,255,255,0.06)'},ticks:{color:'#5A5E7A',font:{size:9}}},
+            y:{grid:{color:'rgba(255,255,255,0.06)'},ticks:{color:'#5A5E7A',font:{size:9}},min:0}}}});
+}
+
+/* CHART: Desfechos acumulados */
+function chartAcumDesfecho(c){
+  destroyChart('chartAcumDesfecho');
+  const ctx=document.getElementById('chartAcumDesfecho');
+  if(!ctx)return;
+  const labels=['D0','D10','D20','D30','D45','D60','D75','D90'];
+  new Chart(ctx,{type:'line',data:{labels,datasets:[
+    {label:'Internados',data:[49,46,42,38,30,18,8,2],fill:false,
+     borderColor:c.warning,borderWidth:2,pointRadius:3,tension:0.4},
+    {label:'Óbitos',data:[0,1,2,3,4,4,4,4],fill:false,
+     borderColor:c.danger,borderWidth:2,pointRadius:3,borderDash:[4,3],tension:0.3}
+  ]},options:{responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{labels:{color:'#8B8FA8',boxWidth:12,font:{size:9}}},tooltip:{cornerRadius:6}},
+    scales:{x:{grid:{color:'rgba(255,255,255,0.06)'},ticks:{color:'#5A5E7A',font:{size:9}}},
+            y:{grid:{color:'rgba(255,255,255,0.06)'},ticks:{color:'#5A5E7A',font:{size:9}},min:0}}}});
 }
 
 /* CHART: Groups */
@@ -1051,13 +1096,13 @@ function chartGroups(c){
   destroyChart('groups');
   const ctx=document.getElementById('chartGroups');
   if(!ctx)return;
-  const pal=[c.blue,c.primary,c.warning,c.orange,c.text];
+  const pal=[c.primary,c.blue,c.warning,c.orange,c.danger];
   if(chartGroupMode==='bar'){
     charts['groups']=new Chart(ctx,{
       type:'bar',
       data:{labels:GRUPOS,datasets:[{data:GRUPO_N,backgroundColor:pal.map(x=>x+'33'),borderColor:pal,borderWidth:2,borderRadius:6}]},
       options:{responsive:true,maintainAspectRatio:false,plugins:{tooltip:{callbacks:{label:ctx=>`${ctx.raw} casos`}}},
-        scales:{x:{ticks:{color:c.textMuted,font:{size:11}},grid:{color:'transparent'}},y:{ticks:{color:c.textMuted,font:{size:11}},grid:{color:c.border+'66'}}}}
+        scales:{x:{ticks:{color:c.textMuted,font:{size:11}},grid:{color:'transparent'}},y:{ticks:{color:c.textMuted,font:{size:11}},grid:{color:'rgba(255,255,255,0.06)'}}}}
     });
   } else {
     charts['groups']=new Chart(ctx,{
@@ -1088,7 +1133,7 @@ function chartDose(c){
     options:{responsive:true,maintainAspectRatio:false,
       scales:{
         x:{title:{display:true,text:'Dose (Gy)',color:c.textMuted,font:{size:11}},ticks:{color:c.textMuted,font:{size:11}},grid:{color:'transparent'}},
-        y:{type:chartDoseMode==='log'?'logarithmic':'linear',title:{display:true,text:'Nº de casos',color:c.textMuted,font:{size:11}},ticks:{color:c.textMuted,font:{size:11}},grid:{color:c.border+'66'}}
+        y:{type:chartDoseMode==='log'?'logarithmic':'linear',title:{display:true,text:'Nº de casos',color:c.textMuted,font:{size:11}},ticks:{color:c.textMuted,font:{size:11}},grid:{color:'rgba(255,255,255,0.06)'}}
       },
       plugins:{tooltip:{callbacks:{label:ctx=>`${ctx.raw} casos`}}}}
   });
@@ -1105,7 +1150,7 @@ function chartSAR(c){
     data:{labels:['Grau 0','Grau I','Grau II','Grau III','Grau IV'],
       datasets:[{data:[200,20,16,8,5],backgroundColor:[c.success+'44',c.blue+'44',c.warning+'44',c.orange+'44',c.danger+'44'],borderColor:[c.success,c.blue,c.warning,c.orange,c.danger],borderWidth:2,borderRadius:4}]},
     options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
-      scales:{x:{ticks:{color:c.textMuted,font:{size:11}},grid:{color:c.border+'66'}},y:{ticks:{color:c.textMuted,font:{size:11}},grid:{color:'transparent'}}},
+      scales:{x:{ticks:{color:c.textMuted,font:{size:11}},grid:{color:'rgba(255,255,255,0.06)'}},y:{ticks:{color:c.textMuted,font:{size:11}},grid:{color:'transparent'}}},
       plugins:{tooltip:{callbacks:{label:ctx=>`${ctx.raw} pacientes`}}}}
   });
 }
@@ -1126,7 +1171,7 @@ function chartKM(c){
     options:{responsive:true,maintainAspectRatio:false,
       scales:{
         x:{title:{display:true,text:'Dias após exposição',color:c.textMuted,font:{size:11}},ticks:{color:c.textMuted,font:{size:11}},grid:{color:'transparent'}},
-        y:{min:0,max:1.05,title:{display:true,text:'Probabilidade de sobrevida',color:c.textMuted,font:{size:11}},ticks:{color:c.textMuted,font:{size:11},callback:v=>(v*100).toFixed(0)+'%'},grid:{color:c.border+'66'}}
+        y:{min:0,max:1.05,title:{display:true,text:'Probabilidade de sobrevida',color:c.textMuted,font:{size:11}},ticks:{color:c.textMuted,font:{size:11},callback:v=>(v*100).toFixed(0)+'%'},grid:{color:'rgba(255,255,255,0.06)'}}
       },
       plugins:{tooltip:{callbacks:{label:ctx=>`S(t) = ${(ctx.raw*100).toFixed(0)}%`}}}}
   });
@@ -1160,7 +1205,7 @@ function chartDecay(c){
     options:{responsive:true,maintainAspectRatio:false,
       scales:{
         x:{title:{display:true,text:'Dias',color:c.textMuted,font:{size:11}},ticks:{color:c.textMuted,font:{size:11}},grid:{color:'transparent'}},
-        y:{type:'logarithmic',title:{display:true,text:'Atividade mediana (Bq)',color:c.textMuted,font:{size:11}},ticks:{color:c.textMuted,font:{size:11}},grid:{color:c.border+'66'}}
+        y:{type:'logarithmic',title:{display:true,text:'Atividade mediana (Bq)',color:c.textMuted,font:{size:11}},ticks:{color:c.textMuted,font:{size:11}},grid:{color:'rgba(255,255,255,0.06)'}}
       },
       plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.raw.toLocaleString()} Bq`}}}}
   });
@@ -1178,7 +1223,7 @@ function chartCompar(c){
     options:{responsive:true,maintainAspectRatio:false,
       scales:{
         x:{ticks:{color:c.textMuted,font:{size:11}},grid:{color:'transparent'}},
-        y:{type:'logarithmic',title:{display:true,text:'Atividade relativa (Goiânia=1)',color:c.textMuted,font:{size:11}},ticks:{color:c.textMuted,font:{size:11}},grid:{color:c.border+'66'}}
+        y:{type:'logarithmic',title:{display:true,text:'Atividade relativa (Goiânia=1)',color:c.textMuted,font:{size:11}},ticks:{color:c.textMuted,font:{size:11}},grid:{color:'rgba(255,255,255,0.06)'}}
       },
       plugins:{tooltip:{callbacks:{label:ctx=>`×${ctx.raw.toLocaleString()} vs Goiânia`}}}}
   });
